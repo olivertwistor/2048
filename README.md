@@ -17,7 +17,7 @@ More info will come with the first release.
 This application is licensed under an *MIT License*. You can read the full 
 license terms in the file [LICENSE](LICENSE).
 
-The application is based on 2048 by Gabriele Cirulli, licensed under an 
+The application is based on [2048 by Gabriele Cirulli][1], licensed under an 
 *MIT License*.
 
 You can read the full license terms for third-party dependencies in the file 
