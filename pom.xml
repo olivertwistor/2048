@@ -7,4 +7,12 @@
     <groupId>nu.olivertwistor</groupId>
     <artifactId>2048</artifactId>
     <version>0.1.0</version>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>https://spdx.org/licenses/Apache-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 </project>
