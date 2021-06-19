@@ -1,11 +1,14 @@
 package nu.olivertwistor.g2048;
 
+import nu.olivertwistor.g2048.gameboard.GameBoard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
 
 /**
  * The GUI class is the topmost class responsible for handling the GUI. It
@@ -22,7 +25,7 @@ public final class GUI extends JFrame
 
     /**
      * Creates a new GUI object (a JFrame), with a title and a size. Sets the
-     * close behaviour to exit the app.
+     * close behaviour to exit the app. Creates and places all GUI components.
      *
      * @param title which title the GUI shows in its title bar
      *
@@ -35,6 +38,13 @@ public final class GUI extends JFrame
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         LOG.info("Created a GUI of size {}x{}.", WIDTH, HEIGHT);
+
+        final GameBoard gameBoard = new GameBoard();
+
+        final JPanel contentPane = new JPanel(new BorderLayout());
+        contentPane.add(gameBoard, BorderLayout.CENTER);
+
+        this.setContentPane(contentPane);
     }
 
     /**
