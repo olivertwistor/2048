@@ -1,6 +1,7 @@
 package nu.olivertwistor.g2048;
 
 import nu.olivertwistor.g2048.gameboard.GameBoard;
+import nu.olivertwistor.g2048.gameboard.TileMovementPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,10 +40,16 @@ public final class GUI extends JFrame
 
         LOG.info("Created a GUI of size {}x{}.", WIDTH, HEIGHT);
 
+        final TileMovementPane tileMovementPane = new TileMovementPane();
+
+        final JPanel gameControlPane = new JPanel(new BorderLayout());
+        gameControlPane.add(tileMovementPane, BorderLayout.CENTER);
+
         final GameBoard gameBoard = new GameBoard();
 
         final JPanel contentPane = new JPanel(new BorderLayout());
         contentPane.add(gameBoard, BorderLayout.CENTER);
+        contentPane.add(gameControlPane, BorderLayout.LINE_END);
 
         this.setContentPane(contentPane);
     }
