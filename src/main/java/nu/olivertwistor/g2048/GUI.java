@@ -1,6 +1,7 @@
 package nu.olivertwistor.g2048;
 
 import nu.olivertwistor.g2048.gameboard.GameBoard;
+import nu.olivertwistor.g2048.scoreboard.ScoreBoard;
 import nu.olivertwistor.g2048.gameboard.TileMovementPane;
 import nu.olivertwistor.g2048.gameboard.actions.MoveDownAction;
 import nu.olivertwistor.g2048.gameboard.actions.MoveLeftAction;
@@ -52,8 +53,11 @@ public final class GUI extends JFrame
 
         final TileMovementPane tileMovementPane = new TileMovementPane();
 
+        final ScoreBoard scoreBoard = new ScoreBoard();
+
         final JPanel gameControlPane = new JPanel(new BorderLayout());
-        gameControlPane.add(tileMovementPane, BorderLayout.CENTER);
+        gameControlPane.add(tileMovementPane, BorderLayout.PAGE_END);
+        gameControlPane.add(scoreBoard, BorderLayout.PAGE_START);
 
         this.gameBoard = new GameBoard();
 
