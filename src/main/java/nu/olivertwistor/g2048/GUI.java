@@ -10,6 +10,7 @@ import nu.olivertwistor.g2048.gameboard.actions.MoveUpAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
@@ -51,13 +52,18 @@ public final class GUI extends JFrame
 
         LOG.info("Created a GUI of size {}x{}.", WIDTH, HEIGHT);
 
+        final ScoreBoard scoreBoard = new ScoreBoard();
         final TileMovementPane tileMovementPane = new TileMovementPane();
 
-        final ScoreBoard scoreBoard = new ScoreBoard();
+        final JCheckBox enableAICheckBox = new JCheckBox("AI play");
+
+        final JPanel settingsPane = new JPanel(new BorderLayout());
+        settingsPane.add(enableAICheckBox, BorderLayout.CENTER);
 
         final JPanel gameControlPane = new JPanel(new BorderLayout());
-        gameControlPane.add(tileMovementPane, BorderLayout.PAGE_END);
         gameControlPane.add(scoreBoard, BorderLayout.PAGE_START);
+        gameControlPane.add(settingsPane, BorderLayout.CENTER);
+        gameControlPane.add(tileMovementPane, BorderLayout.PAGE_END);
 
         this.gameBoard = new GameBoard();
 
