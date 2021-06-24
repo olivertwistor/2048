@@ -2,12 +2,14 @@ package nu.olivertwistor.g2048.gameboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.Dimension;
 
 class StyledArrowButton extends BasicArrowButton
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
     private static final Dimension SIZE = new Dimension(50, 50);

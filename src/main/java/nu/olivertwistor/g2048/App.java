@@ -8,6 +8,11 @@ import javax.swing.SwingUtilities;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ResourceBundle;
 
+/**
+ * The starting point for this application. Creates a GUI and shows it.
+ *
+ * @since //todo correct version
+ */
 final class App
 {
     @NonNls
@@ -16,6 +21,12 @@ final class App
     private static final ResourceBundle i18n =
             ResourceBundle.getBundle("app"); //NON-NLS
 
+    /**
+     *
+     * @param args
+     * @throws InterruptedException
+     * @throws InvocationTargetException
+     */
     public static void main(final String[] args)
             throws InterruptedException, InvocationTargetException
     {

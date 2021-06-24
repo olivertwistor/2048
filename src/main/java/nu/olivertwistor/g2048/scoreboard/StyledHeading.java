@@ -2,6 +2,8 @@ package nu.olivertwistor.g2048.scoreboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NonNls;
 
 import java.awt.Font;
 import java.awt.font.TextAttribute;
@@ -10,11 +12,12 @@ import java.util.Map;
 
 final class StyledHeading extends StyledLabel
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
     private static final int FONT_SIZE = 20;
 
-    StyledHeading(final String text)
+    StyledHeading(final @Nls String text)
     {
         super(text);
 

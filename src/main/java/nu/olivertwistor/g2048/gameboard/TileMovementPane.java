@@ -2,6 +2,7 @@ package nu.olivertwistor.g2048.gameboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.Action;
 import javax.swing.JButton;
@@ -12,6 +13,7 @@ import java.awt.GridLayout;
 
 public final class TileMovementPane extends JPanel
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
     private final JButton moveRightButton;

@@ -8,6 +8,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("ClassOnlyUsedInOnePackage")
 public final class MoveDownAction extends AbstractAction
 {
     @NonNls
@@ -23,7 +24,6 @@ public final class MoveDownAction extends AbstractAction
                 "actions.move-down.short-description"));
         this.putValue(LONG_DESCRIPTION, i18n.getString(
                 "actions.move-down.long-description"));
-
     }
 
     @Override

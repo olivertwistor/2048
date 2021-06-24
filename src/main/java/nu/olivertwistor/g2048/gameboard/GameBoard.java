@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("ClassOnlyUsedInOnePackage")
 public class GameBoard extends JPanel
 {
     @NonNls

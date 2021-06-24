@@ -2,36 +2,47 @@ package nu.olivertwistor.g2048.scoreboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JPanel;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ResourceBundle;
 
 public final class ScoreBoard extends JPanel
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
+
+    private static final ResourceBundle I18N =
+            ResourceBundle.getBundle("scoreboard"); //NON-NLS
 
     public ScoreBoard()
     {
         super(new GridBagLayout());
         final GridBagConstraints constraints = new GridBagConstraints();
 
+        @NonNls
         final String numberFormat = "%5d";
+
         final Insets insets = new Insets(5, 5, 5, 5);
 
-        final Component gameHeading = new StyledHeading("This game");
-        final Component gameHighestTileValueLabel =
-                new StyledLabel("Highest value");
+        final Component gameHeading = new StyledHeading(
+                I18N.getString("game.label.heading"));
+        final Component gameHighestTileValueLabel = new StyledLabel(
+                I18N.getString("game.label.highest-tile-value"));
         final Component gameHighestTileValueField =
                 new StyledNumberField(String.format(numberFormat, 0));
-        final Component numMovesLabel = new StyledLabel("Number of moves");
+        final Component numMovesLabel = new StyledLabel(
+                I18N.getString("label.num-moves"));
         final Component numMovesField =
                 new StyledNumberField(String.format(numberFormat, 0));
-        final Component allTimeHeading = new StyledHeading("All time");
-        final Component allTimeHighestTileValueLabel =
-                new StyledLabel("Highest value");
+        final Component allTimeHeading = new StyledHeading(
+                I18N.getString("all-time.label.heading"));
+        final Component allTimeHighestTileValueLabel = new StyledLabel(
+                I18N.getString("all-time.label.highest-tile-value"));
         final Component allTimeHighestTileValueField =
                 new StyledNumberField(String.format(numberFormat, 0));
 

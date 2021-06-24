@@ -2,6 +2,8 @@ package nu.olivertwistor.g2048.scoreboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -12,11 +14,12 @@ import java.util.Map;
 @SuppressWarnings("OverridableMethodCallDuringObjectConstruction")
 class StyledLabel extends JLabel
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
     private static final int FONT_SIZE = 20;
 
-    StyledLabel(final String text)
+    StyledLabel(final @Nls String text)
     {
         super(text);
 
