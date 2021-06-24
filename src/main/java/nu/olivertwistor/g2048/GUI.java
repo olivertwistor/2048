@@ -10,13 +10,17 @@ import nu.olivertwistor.g2048.gameboard.actions.MoveUpAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NonNls;
 
+import javax.swing.Action;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.util.ResourceBundle;
 
 /**
@@ -25,7 +29,7 @@ import java.util.ResourceBundle;
  *
  * @since //TODO correct version
  */
-public final class GUI extends JFrame
+final class GUI extends JFrame
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
@@ -35,12 +39,6 @@ public final class GUI extends JFrame
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-
-    private final GameBoard gameBoard;
-    private MoveRightAction moveRightAction;
-    private MoveUpAction moveUpAction;
-    private MoveDownAction moveDownAction;
-    private MoveLeftAction moveLeftAction;
 
     /**
      * Creates a new GUI object (a JFrame), with a title and a size. Sets the
@@ -58,38 +56,38 @@ public final class GUI extends JFrame
 
         LOG.info("Created a GUI of size {}x{}.", WIDTH, HEIGHT);
 
-        final ScoreBoard scoreBoard = new ScoreBoard();
+        final Component scoreBoard = new ScoreBoard();
         final TileMovementPane tileMovementPane = new TileMovementPane();
 
         final Component enableAICheckBox =
                 new JCheckBox(i18n.getString("gui.checkbox.ai-play"));
 
-        final JPanel settingsPane = new JPanel(new BorderLayout());
+        final Container settingsPane = new JPanel(new BorderLayout());
         settingsPane.add(enableAICheckBox, BorderLayout.CENTER);
 
-        final JPanel gameControlPane = new JPanel(new BorderLayout());
+        final Container gameControlPane = new JPanel(new BorderLayout());
         gameControlPane.add(scoreBoard, BorderLayout.PAGE_START);
         gameControlPane.add(settingsPane, BorderLayout.CENTER);
         gameControlPane.add(tileMovementPane, BorderLayout.PAGE_END);
 
-        this.gameBoard = new GameBoard();
+        final Component gameBoard = new GameBoard();
 
-        final JPanel contentPane = new JPanel(new BorderLayout());
+        final Container contentPane = new JPanel(new BorderLayout());
         contentPane.add(gameBoard, BorderLayout.CENTER);
         contentPane.add(gameControlPane, BorderLayout.LINE_END);
 
         this.setContentPane(contentPane);
 
-        this.moveRightAction = new MoveRightAction(this.gameBoard);
-        this.moveUpAction = new MoveUpAction(this.gameBoard);
-        this.moveLeftAction = new MoveLeftAction(this.gameBoard);
-        this.moveDownAction = new MoveDownAction(this.gameBoard);
+        final Action moveRightAction = new MoveRightAction();
+        final Action moveUpAction = new MoveUpAction();
+        final Action moveLeftAction = new MoveLeftAction();
+        final Action moveDownAction = new MoveDownAction();
 
         tileMovementPane.registerActions(
-                this.moveRightAction,
-                this.moveUpAction,
-                this.moveLeftAction,
-                this.moveDownAction);
+                moveRightAction,
+                moveUpAction,
+                moveLeftAction,
+                moveDownAction);
     }
 
     /**
@@ -100,7 +98,7 @@ public final class GUI extends JFrame
      */
     void attachMainMenuBar()
     {
-        final JMenuBar menuBar = new MainMenuBar(this);
+        final JMenuBar menuBar = new MainMenuBar();
         this.setJMenuBar(menuBar);
 
         LOG.debug("Attached a menu bar.");

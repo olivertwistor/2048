@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JMenuBar;
 
-public class MainMenuBar extends JMenuBar
+class MainMenuBar extends JMenuBar
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
@@ -14,11 +14,9 @@ public class MainMenuBar extends JMenuBar
     /**
      * Creates a new main menu bar and all its content.
      *
-     * @param gui the gui to which this menu bar is attached
-     *
      * @since //todo correct version
      */
-    public MainMenuBar(final GUI gui)
+    MainMenuBar()
     {
         LOG.error("not implemented");
 

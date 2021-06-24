@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ResourceBundle;
 
-public final class App
+final class App
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();

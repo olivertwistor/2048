@@ -6,15 +6,17 @@ import org.apache.logging.log4j.Logger;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.Dimension;
 
-public class StyledArrowButton extends BasicArrowButton
+class StyledArrowButton extends BasicArrowButton
 {
     private static final Logger LOG = LogManager.getLogger();
 
     private static final Dimension SIZE = new Dimension(50, 50);
 
-    public StyledArrowButton(final int direction)
+    StyledArrowButton(final int direction)
     {
         super(direction);
+
+        LOG.trace("Created a styled arrow button.");
     }
 
     @Override

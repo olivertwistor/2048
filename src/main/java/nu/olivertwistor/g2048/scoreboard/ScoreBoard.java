@@ -3,8 +3,8 @@ package nu.olivertwistor.g2048.scoreboard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -12,10 +12,6 @@ import java.awt.Insets;
 public final class ScoreBoard extends JPanel
 {
     private static final Logger LOG = LogManager.getLogger();
-
-    private JLabel gameHighestTileValueField;
-    private JLabel allTimeHighestTileValueField;
-    private JLabel numMovesField;
 
     public ScoreBoard()
     {
@@ -25,18 +21,18 @@ public final class ScoreBoard extends JPanel
         final String numberFormat = "%5d";
         final Insets insets = new Insets(5, 5, 5, 5);
 
-        final JLabel gameHeading = new StyledHeading("This game");
-        final JLabel gameHighestTileValueLabel =
+        final Component gameHeading = new StyledHeading("This game");
+        final Component gameHighestTileValueLabel =
                 new StyledLabel("Highest value");
-        this.gameHighestTileValueField =
+        final Component gameHighestTileValueField =
                 new StyledNumberField(String.format(numberFormat, 0));
-        final JLabel numMovesLabel = new StyledLabel("Number of moves");
-        this.numMovesField =
+        final Component numMovesLabel = new StyledLabel("Number of moves");
+        final Component numMovesField =
                 new StyledNumberField(String.format(numberFormat, 0));
-        final JLabel allTimeHeading = new StyledHeading("All time");
-        final JLabel allTimeHighestTileValueLabel =
+        final Component allTimeHeading = new StyledHeading("All time");
+        final Component allTimeHighestTileValueLabel =
                 new StyledLabel("Highest value");
-        this.allTimeHighestTileValueField =
+        final Component allTimeHighestTileValueField =
                 new StyledNumberField(String.format(numberFormat, 0));
 
         // Lay out headings.
@@ -67,5 +63,7 @@ public final class ScoreBoard extends JPanel
         this.add(numMovesField, constraints);
         constraints.gridy = 4;
         this.add(allTimeHighestTileValueField, constraints);
+
+        LOG.trace("Created a score board.");
     }
 }

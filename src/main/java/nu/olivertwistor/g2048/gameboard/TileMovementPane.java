@@ -7,36 +7,32 @@ import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.plaf.basic.BasicArrowButton;
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Container;
 import java.awt.GridLayout;
 
 public final class TileMovementPane extends JPanel
 {
     private static final Logger LOG = LogManager.getLogger();
 
-    private JButton moveRightButton;
-    private JButton moveUpButton;
-    private JButton moveLeftButton;
-    private JButton moveDownButton;
+    private final JButton moveRightButton;
+    private final JButton moveUpButton;
+    private final JButton moveLeftButton;
+    private final JButton moveDownButton;
 
     public TileMovementPane()
     {
-        final Dimension arrowButtonSize = new Dimension(50, 50);
-
         this.moveRightButton = new StyledArrowButton(SwingConstants.EAST);
         this.moveUpButton = new StyledArrowButton(SwingConstants.NORTH);
         this.moveLeftButton = new StyledArrowButton(SwingConstants.WEST);
         this.moveDownButton = new StyledArrowButton(SwingConstants.SOUTH);
 
-        final JPanel upDownPane = new JPanel(new GridLayout(2, 1));
-        upDownPane.add(moveUpButton);
-        upDownPane.add(moveDownButton);
+        final Container upDownPane = new JPanel(new GridLayout(2, 1));
+        upDownPane.add(this.moveUpButton);
+        upDownPane.add(this.moveDownButton);
 
-        this.add(moveLeftButton);
+        this.add(this.moveLeftButton);
         this.add(upDownPane);
-        this.add(moveRightButton);
+        this.add(this.moveRightButton);
 
         LOG.debug("Created the tile movement pane.");
     }
