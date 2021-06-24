@@ -9,6 +9,7 @@ import nu.olivertwistor.g2048.gameboard.actions.MoveRightAction;
 import nu.olivertwistor.g2048.gameboard.actions.MoveUpAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nls;
 
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
+import java.util.ResourceBundle;
 
 /**
  * The GUI class is the topmost class responsible for handling the GUI. It
@@ -25,7 +27,11 @@ import java.awt.BorderLayout;
  */
 public final class GUI extends JFrame
 {
+    @NonNls
     private static final Logger LOG = LogManager.getLogger();
+
+    private static final ResourceBundle i18n =
+            ResourceBundle.getBundle("app"); //NON-NLS
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
@@ -44,7 +50,7 @@ public final class GUI extends JFrame
      *
      * @since //TODO correct version
      */
-    public GUI(final String title)
+    GUI(@Nls final String title)
     {
         super(title);
         this.setSize(WIDTH, HEIGHT);
@@ -55,7 +61,8 @@ public final class GUI extends JFrame
         final ScoreBoard scoreBoard = new ScoreBoard();
         final TileMovementPane tileMovementPane = new TileMovementPane();
 
-        final JCheckBox enableAICheckBox = new JCheckBox("AI play");
+        final Component enableAICheckBox =
+                new JCheckBox(i18n.getString("gui.checkbox.ai-play"));
 
         final JPanel settingsPane = new JPanel(new BorderLayout());
         settingsPane.add(enableAICheckBox, BorderLayout.CENTER);
