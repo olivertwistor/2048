@@ -11,14 +11,28 @@ import java.awt.font.TextAttribute;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This is a JLabel with its font size set.
+ *
+ * @since //todo correct version
+ */
 @SuppressWarnings("OverridableMethodCallDuringObjectConstruction")
 class StyledLabel extends JLabel
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
+    private static final long serialVersionUID = 1L;
+
     private static final int FONT_SIZE = 20;
 
+    /**
+     * Creates a JLabel with a different font size.
+     *
+     * @param text the text to display
+     *
+     * @since //todo correct version
+     */
     StyledLabel(final @Nls String text)
     {
         super(text);

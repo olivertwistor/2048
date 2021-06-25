@@ -6,10 +6,19 @@ import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JMenuBar;
 
+/**
+ * .
+ * //todo fill in when it's time to implement this class
+ *
+ * @since //todo correct version
+ */
+@SuppressWarnings("ClassOnlyUsedInOnePackage")
 class MainMenuBar extends JMenuBar
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Creates a new main menu bar and all its content.

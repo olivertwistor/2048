@@ -8,15 +8,29 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
-@SuppressWarnings("ALL")
+/**
+ * This action is triggered when the user wants to move the gameboard to the
+ * left. It tells all the tiles to move to the left.
+ *
+ * @since //todo correct version
+ */
+@SuppressWarnings("ClassOnlyUsedInOnePackage")
 public final class MoveLeftAction extends AbstractAction
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
+    private static final long serialVersionUID = 1L;
+
     private static final ResourceBundle I18N =
             ResourceBundle.getBundle("gameboard"); //NON-NLS
 
+    /**
+     * Creates the move left action. Sets the name, short description and long
+     * description.
+     *
+     * @since //todo correct version
+     */
     public MoveLeftAction()
     {
         super(I18N.getString("actions.move-left.name"));

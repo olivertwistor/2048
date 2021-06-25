@@ -34,7 +34,9 @@ final class GUI extends JFrame
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
-    private static final ResourceBundle i18n =
+    private static final long serialVersionUID = 1L;
+
+    private static final ResourceBundle I18N =
             ResourceBundle.getBundle("app"); //NON-NLS
 
     private static final int WIDTH = 800;
@@ -60,7 +62,7 @@ final class GUI extends JFrame
         final TileMovementPane tileMovementPane = new TileMovementPane();
 
         final Component enableAICheckBox =
-                new JCheckBox(i18n.getString("gui.checkbox.ai-play"));
+                new JCheckBox(I18N.getString("gui.checkbox.ai-play"));
 
         final Container settingsPane = new JPanel(new BorderLayout());
         settingsPane.add(enableAICheckBox, BorderLayout.CENTER);

@@ -10,13 +10,29 @@ import java.awt.font.TextAttribute;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This is a {@link StyledLabel} with increased font size, bold font weight and
+ * an underline.
+ *
+ * @since //todo correct version
+ */
 final class StyledHeading extends StyledLabel
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
+    private static final long serialVersionUID = 1L;
+
     private static final int FONT_SIZE = 20;
 
+    /**
+     * Creates a {@link StyledLabel} with increased font size, bold font weight
+     * and an underline.
+     *
+     * @param text the text to display
+     *
+     * @since //todo correct version
+     */
     StyledHeading(final @Nls String text)
     {
         super(text);

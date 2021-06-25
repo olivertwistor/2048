@@ -18,14 +18,21 @@ final class App
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
-    private static final ResourceBundle i18n =
+    private static final ResourceBundle I18N =
             ResourceBundle.getBundle("app"); //NON-NLS
 
     /**
+     * Starts the app by creating and showing the GUI.
      *
-     * @param args
-     * @throws InterruptedException
-     * @throws InvocationTargetException
+     * @param args not used
+     *
+     * @throws InterruptedException      if the thread in which the GUI is
+     *                                   drawn, is interrupted
+     * @throws InvocationTargetException if the method that's creating and
+     *                                   showing the GUI can't be called;
+     *                                   should never occur
+     *
+     * @since //todo correct version
      */
     public static void main(final String[] args)
             throws InterruptedException, InvocationTargetException
@@ -35,9 +42,14 @@ final class App
         LOG.info("Started the app.");
     }
 
+    /**
+     * Creates the GUI, attaches a menu bar and makes the GUI visible.
+     *
+     * @since //todo correct version
+     */
     private static void createAndShowGUI()
     {
-        final GUI gui = new GUI(i18n.getString("gui.title"));
+        final GUI gui = new GUI(I18N.getString("gui.title"));
         gui.attachMainMenuBar();
         gui.setVisible(true);
     }

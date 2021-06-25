@@ -11,14 +11,26 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ResourceBundle;
 
+/**
+ * JPanel holding player scores both for the active game and for all time.
+ *
+ * @since //todo correct version
+ */
 public final class ScoreBoard extends JPanel
 {
     @NonNls
     private static final Logger LOG = LogManager.getLogger();
 
+    private static final long serialVersionUID = 1L;
+
     private static final ResourceBundle I18N =
             ResourceBundle.getBundle("scoreboard"); //NON-NLS
 
+    /**
+     * Creates the score board, and lays out all its components.
+     *
+     * @since //todo correct version
+     */
     public ScoreBoard()
     {
         super(new GridBagLayout());
@@ -33,18 +45,18 @@ public final class ScoreBoard extends JPanel
                 I18N.getString("game.label.heading"));
         final Component gameHighestTileValueLabel = new StyledLabel(
                 I18N.getString("game.label.highest-tile-value"));
-        final Component gameHighestTileValueField =
-                new StyledNumberField(String.format(numberFormat, 0));
+        final Component gameHighestTileValueField = new StyledLabel(
+                String.format(numberFormat, 0));
         final Component numMovesLabel = new StyledLabel(
                 I18N.getString("label.num-moves"));
-        final Component numMovesField =
-                new StyledNumberField(String.format(numberFormat, 0));
+        final Component numMovesField = new StyledLabel(
+                String.format(numberFormat, 0));
         final Component allTimeHeading = new StyledHeading(
                 I18N.getString("all-time.label.heading"));
         final Component allTimeHighestTileValueLabel = new StyledLabel(
                 I18N.getString("all-time.label.highest-tile-value"));
-        final Component allTimeHighestTileValueField =
-                new StyledNumberField(String.format(numberFormat, 0));
+        final Component allTimeHighestTileValueField = new StyledLabel(
+                String.format(numberFormat, 0));
 
         // Lay out headings.
         constraints.gridx = 0;
