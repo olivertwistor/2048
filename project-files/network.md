@@ -10,5 +10,6 @@
 | 16       | GameState                                 | must-have   | 8, 12        |
 | 13       | Keyboard controls                         | should-have | 7            |
 | 14       | AI player                                 | should-have | 11           |
+| 15       | Let font-faces, sizes and colours be configurable | should-have |      |
 | 9        | Grid size of the game board is adjustable | could-have  | 8            |
 | 17       | Swedish translation                       | could-have  |              |
