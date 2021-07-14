@@ -19,12 +19,12 @@
         </RollingRandomAccessFile>
     </Appenders>
     <Loggers>
-        <Logger name="nu.olivertwistor.g2048"
+        <Logger name="nu.olivertwistor.game2048"
                 level="trace"
                 additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <!-- <Logger name="nu.olivertwistor.g2048"
+        <!-- <Logger name="nu.olivertwistor.game2048"
                 level="info"
                 additivity="false">
             <AppenderRef ref="LogToRollingRandomAccessFile"/>
