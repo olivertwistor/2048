@@ -44,10 +44,6 @@ public class GameBoard
             tile.setValue(Tile.LOWEST_VALUE);
         }
 
-        //DEBUG!
-        gameBoard.getTile(0, 0).setValue(4);
-        gameBoard.getTile(3, 3).setValue(8);
-
         return gameBoard;
     }
 

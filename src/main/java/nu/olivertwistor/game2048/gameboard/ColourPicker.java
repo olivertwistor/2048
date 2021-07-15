@@ -31,13 +31,14 @@ public class ColourPicker
 
     public Color getRandomColor()
     {
-        final int brightener = 100;
+        final int brightener = 150;
+        final int leftTo255 = 255 - brightener;
 
         while (true)
         {
-            final int red = brightener + this.randomiser.nextInt(155);
-            final int green = brightener + this.randomiser.nextInt(155);
-            final int blue = brightener + this.randomiser.nextInt(155);
+            final int red = brightener + this.randomiser.nextInt(leftTo255);
+            final int green = brightener + this.randomiser.nextInt(leftTo255);
+            final int blue = brightener + this.randomiser.nextInt(leftTo255);
 
             final Color randomColor = new Color(red, green, blue);
             if (this.usedColours.add(randomColor))

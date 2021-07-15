@@ -54,8 +54,10 @@ public final class TileGUI extends JPanel
             fontAttributes.put(TextAttribute.SIZE, this.fontSize);
             final Font font = this.getFont().deriveFont(fontAttributes);
 
-            this.valueLabel.setText(String.valueOf(tileValue));
+            final String valueText = String.valueOf(tileValue);
+            this.valueLabel.setText(valueText);
             this.valueLabel.setFont(font);
+
             this.add(this.valueLabel, BorderLayout.CENTER);
         }
     }
