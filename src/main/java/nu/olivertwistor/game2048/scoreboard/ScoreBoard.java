@@ -42,9 +42,24 @@ public class ScoreBoard
         return this.gameNumMoves;
     }
 
+    public void setGameNumMoves(final int gameNumMoves)
+    {
+        this.gameNumMoves = gameNumMoves;
+    }
+
+    public void incrementGameNumMoves()
+    {
+        this.gameNumMoves++;
+    }
+
     public int getGameLargestTile()
     {
         return this.gameLargestTile;
+    }
+
+    public void setGameLargestTile(final int gameLargestTile)
+    {
+        this.gameLargestTile = gameLargestTile;
     }
 
     public int getTotalLowestNumMoves()
@@ -52,8 +67,18 @@ public class ScoreBoard
         return this.totalLowestNumMoves;
     }
 
+    public void setTotalLowestNumMoves(final int totalLowestNumMoves)
+    {
+        this.totalLowestNumMoves = totalLowestNumMoves;
+    }
+
     public int getTotalLargestTile()
     {
         return this.totalLargestTile;
+    }
+
+    public void setTotalLargestTile(final int totalLargestTile)
+    {
+        this.totalLargestTile = totalLargestTile;
     }
 }
