@@ -4,7 +4,7 @@ import nu.olivertwistor.game2048.gameboard.Tile;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
+import java.io.IOException;
 
 public class ScoreBoard
 {
@@ -14,27 +14,32 @@ public class ScoreBoard
     private int gameLargestTile;
     private int totalLowestNumMoves;
     private int totalLargestTile;
+    private final HiScoresReaderWriter hiScoresReaderWriter;
 
     public ScoreBoard(final int gameNumMoves,
                       final int gameLargestTile,
-                      final int totalLowestNumMoves,
-                      final int totalLargestTile)
+                      final HiScoresReaderWriter hiScoresReaderWriter)
     {
         this.gameNumMoves = gameNumMoves;
         this.gameLargestTile = gameLargestTile;
-        this.totalLowestNumMoves = totalLowestNumMoves;
-        this.totalLargestTile = totalLargestTile;
+        this.totalLowestNumMoves = hiScoresReaderWriter.getLowestNumMoves();
+        this.totalLargestTile = hiScoresReaderWriter.getLargestTile();
+        this.hiScoresReaderWriter = hiScoresReaderWriter;
     }
 
-    public static ScoreBoard initialise(final HiScoresReader hiScoresReader)
+    public static ScoreBoard initialise(
+            final HiScoresReaderWriter hiScoresReaderWriter)
     {
-        final int lowestNumMoves = hiScoresReader.getLowestNumMoves();
-        final int largestTile = hiScoresReader.getLargestTile();
-
         final ScoreBoard scoreBoard = new ScoreBoard(
-                0, Tile.LOWEST_VALUE, lowestNumMoves, largestTile);
+                0, Tile.LOWEST_VALUE, hiScoresReaderWriter);
 
         return scoreBoard;
+    }
+
+    public void storeHiScores() throws IOException
+    {
+        this.hiScoresReaderWriter.setLowestNumMoves(this.gameNumMoves);
+        this.hiScoresReaderWriter.setLargestTile(this.gameLargestTile);
     }
 
     public int getGameNumMoves()

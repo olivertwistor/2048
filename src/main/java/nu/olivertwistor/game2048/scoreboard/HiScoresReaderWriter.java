@@ -14,7 +14,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-public class HiScoresReader
+public class HiScoresReaderWriter
 {
     private static final Logger LOG = LogManager.getLogger();
 
@@ -24,7 +24,7 @@ public class HiScoresReader
     private final String filepath;
     private final Properties properties;
 
-    public HiScoresReader(final String filepath) throws IOException
+    public HiScoresReaderWriter(final String filepath)
     {
         this.filepath = filepath;
         this.properties = new Properties();
@@ -39,15 +39,29 @@ public class HiScoresReader
         {
             // If the file can't be found, let's create it.
             final File file = new File(filepath);
-            final boolean createSuccess = file.createNewFile();
-            if (createSuccess)
+            final boolean createSuccess;
+            try
             {
-                LOG.info("Created new file: {}", file.getAbsolutePath());
+                createSuccess = file.createNewFile();
+
+                if (createSuccess)
+                {
+                    LOG.info("Created new file: {}", file.getCanonicalPath());
+                }
+                else
+                {
+                    LOG.warn("Failed to create new file: {}", filepath);
+                }
             }
-            else
+            catch (IOException ioException)
             {
-                LOG.warn("Failed to create new file: {}", filepath);
+                LOG.error("Unable to create hiscores file.", e);
+                return;
             }
+        }
+        catch (final IOException e)
+        {
+            LOG.error("Unable to read from hiscores file.", e);
         }
     }
 

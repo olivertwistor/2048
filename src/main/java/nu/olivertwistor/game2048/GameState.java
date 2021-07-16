@@ -1,7 +1,7 @@
 package nu.olivertwistor.game2048;
 
 import nu.olivertwistor.game2048.gameboard.GameBoard;
-import nu.olivertwistor.game2048.scoreboard.HiScoresReader;
+import nu.olivertwistor.game2048.scoreboard.HiScoresReaderWriter;
 import nu.olivertwistor.game2048.scoreboard.ScoreBoard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,24 +22,12 @@ public class GameState
         this.scoreBoard = scoreBoard;
     }
 
-    public static GameState initialise()
+    public static GameState initialise(
+            final HiScoresReaderWriter hiScoresReaderWriter)
     {
         final GameBoard gameBoard = GameBoard.initialise();
-
-        ScoreBoard scoreBoard;
-        try
-        {
-            final HiScoresReader hiScoresReader = new HiScoresReader(
-                    System.getProperty("user.dir") +
-                            File.separator + "hiscores.txt");
-            scoreBoard = ScoreBoard.initialise(hiScoresReader);
-        }
-        catch (final IOException e)
-        {
-            scoreBoard = new ScoreBoard(0, 0, 0, 0);
-            LOG.warn("Failed to read hiscore file. Using temporary scores " +
-                    "instead.");
-        }
+        final ScoreBoard scoreBoard =
+                ScoreBoard.initialise(hiScoresReaderWriter);
 
         return new GameState(gameBoard, scoreBoard);
     }

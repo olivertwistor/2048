@@ -15,9 +15,11 @@ public class GUI extends JFrame
 {
     private static final Logger LOG = LogManager.getLogger();
 
-    public GUI(final String title, final GameState gameState)
+    public GUI(final String title, final Game game)
     {
         super(title);
+
+        final GameState gameState = game.getLatestGameState();
 
         final GameBoard gameBoard = gameState.getGameBoard();
         final GameBoardGUI gameBoardGUI = new GameBoardGUI(gameBoard);
