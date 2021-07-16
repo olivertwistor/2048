@@ -11,6 +11,7 @@ import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.font.TextAttribute;
 import java.util.HashMap;
@@ -30,11 +31,17 @@ public final class ScoreBoardGUI extends JPanel
                 String.valueOf(scoreBoard.getGameNumMoves()));
         gameNumMovesLabel.setLabelFor(gameNumMovesValue);
 
+        //todo remove when scoreboard fully works
+        gameNumMovesValue.setText("not implemented");
+
         final DescriptionLabel gameLargestTileLabel =
                 new DescriptionLabel("Largest tile");
         final ValueLabel gameLargestTileValue = new ValueLabel(
                 String.valueOf(scoreBoard.getGameLargestTile()));
         gameLargestTileLabel.setLabelFor(gameLargestTileValue);
+
+        //todo remove when scoreboard fully works
+        gameLargestTileValue.setText("not implemented");
 
         final DescriptionLabel totalLowestNumMovesLabel =
                 new DescriptionLabel("Number of moves");
@@ -42,11 +49,17 @@ public final class ScoreBoardGUI extends JPanel
                 String.valueOf(scoreBoard.getTotalLowestNumMoves()));
         totalLowestNumMovesLabel.setLabelFor(totalLowestNumMovesValue);
 
+        //todo remove when scoreboard fully works
+        totalLowestNumMovesValue.setText("not implemented");
+
         final DescriptionLabel totalLargestTileLabel =
                 new DescriptionLabel("Largest tile");
         final ValueLabel totalLargestTileValue = new ValueLabel(
                 String.valueOf(scoreBoard.getTotalLargestTile()));
         totalLargestTileLabel.setLabelFor(totalLargestTileValue);
+
+        //todo remove when scoreboard fully works
+        totalLargestTileValue.setText("not implemented");
 
         final JPanel gameNumMovesPanel = new JPanel(new BorderLayout());
         gameNumMovesPanel.add(gameNumMovesLabel, BorderLayout.PAGE_START);
@@ -105,7 +118,8 @@ public final class ScoreBoardGUI extends JPanel
             final Map<TextAttribute, Object> valueFontAttributes =
                     new HashMap<>();
             valueFontAttributes.put(TextAttribute.FOREGROUND, Color.BLACK);
-            valueFontAttributes.put(TextAttribute.SIZE, 24);
+            //valueFontAttributes.put(TextAttribute.SIZE, 24);
+            valueFontAttributes.put(TextAttribute.SIZE, 12); //todo remove when score fully works
             this.setFont(this.getFont().deriveFont(valueFontAttributes));
         }
     }
